@@ -1,45 +1,43 @@
-Segmentacija Marketinških Kampanja pomoću Klasterizacije
-Opis projekta
-Ovaj projekat fokusiran je na analizu i segmentaciju baze od 10.000 marketinških kampanja. Cilj je bio da se primenom tehnika mašinskog učenja (nevođeno učenje) identifikuju ključne grupe kampanja na osnovu njihovih performansi i budžeta, kako bi se omogućila efikasnija alokacija resursa i personalizacija marketing strategija.
+# Segmentacija Marketinških Kampanja pomoću Klasterizacije
 
-Ciljevi analize
-Identifikacija optimalnog broja segmenata unutar gustog skupa podataka.
+Ovaj projekat fokusiran je na analizu i segmentaciju baze od 10.000 marketinških kampanja. Cilj je bio da se primenom tehnika mašinskog učenja identifikuju ključne grupe kampanja na osnovu njihovih performansi i budžeta.
 
-Poređenje performansi različitih algoritama za klasterizaciju.
+## Ciljevi analize
 
-Vizuelizacija strukture podataka pre i nakon obrade radi lakše interpretacije poslovnih rezultata.
+- Identifikacija optimalnog broja segmenata unutar gustog skupa podataka.
+- Poređenje performansi različitih algoritama za klasterizaciju.
+- Vizuelizacija strukture podataka pre i nakon obrade.
 
-Korišćeni algoritmi i metode
+## Korišćeni algoritmi i metode
+
 U okviru projekta testirano je pet različitih modela kako bi se pronašlo najstabilnije rešenje:
 
-K-Means (k=4): Glavni model koji je pokazao najvišu matematičku preciznost.
+1. **K-Means (k=4)**
+2. **Mini-Batch K-Means**
+3. **Hijerarhijska klasterizacija (Ward metoda)**
+4. **DBSCAN**
+5. **Mean Shift**
 
-Mini-Batch K-Means: Brža verzija algoritma korišćena za proveru stabilnosti granica klastera.
+## Metodologija rada
 
-Hijerarhijska klasterizacija (Ward metoda): Korišćena za analizu unutrašnje strukture i hijerarhije podataka.
+- **Preprocesiranje**: Izvršena je standardizacija podataka i logaritamska transformacija ključnih varijabli (`Budget`, `Revenue`) radi smanjenja asimetričnosti.
+- **Evaluacija**: Kvalitet klasterizacije ocenjen je pomoću tri metrike: Silhouette Score, Davies-Bouldin Index i Calinski-Harabasz Index.
+- **Redukcija dimenzionalnosti**: Korišćena je PCA (Principal Component Analysis).
 
-DBSCAN: Testiran radi identifikacije prirodne gustine i izolacije šuma (outlier-a).
+## Instalacija i pokretanje
 
-Mean Shift: Korišten za automatsko detektovanje centara gustine bez unapred definisanog broja grupa.
-
-Metodologija rada
-Preprocesiranje: Izvršena je standardizacija podataka i logaritamska transformacija ključnih varijabli (Budget, Revenue) radi smanjenja asimetričnosti.
-
-Evaluacija: Kvalitet klasterizacije ocenjen je pomoću tri metrike: Silhouette Score, Davies-Bouldin Index i Calinski-Harabasz Index.
-
-Redukcija dimenzionalnosti: Korišćena je PCA (Principal Component Analysis) metoda za prebacivanje podataka u 2D prostor radi vizuelizacije.
-
-Instalacija i pokretanje
 Da biste pokrenuli ovaj projekat, potrebno je da imate instaliran Python i sledeće biblioteke:
 
-Bash
+```bash
 pip install pandas numpy matplotlib seaborn scikit-learn
-Koraci za pokretanje:
-Klonirajte ili preuzmite projekat.
+```
 
-Osigurajte da se dataset nalazi u istom direktorijumu kao i skripta.
+## Koraci za pokretanje
 
-Pokrenite skriptu ili Jupyter Notebook okruženje.
+1. Klonirajte ili preuzmite projekat.
+2. Osigurajte da se dataset nalazi u istom direktorijumu kao i skripta.
+3. Pokrenite skriptu ili Jupyter Notebook okruženje.
 
-Zaključak analize
-Rezultati su pokazali da je K-Means sa 4 klastera najadekvatniji model za ovaj set podataka. Iako su podaci inicijalno delovali kao homogena masa, vizuelizacija mape gustine (KDE plot) nakon klasterizacije jasno je potvrdila postojanje četiri centra gravitacije, što omogućava preciznu podelu kampanja u četiri različita poslovna segmenta.
+## Zaključak analize
+
+Rezultati su pokazali da je **K-Means sa 4 klastera** najadekvatniji model za ovaj set podataka. Iako su podaci inicijalno delovali kao homogena masa, vizuelizacija mape gustine (KDE plot) nakon klasterizacije jasno je potvrdila postojanje četiri centra gravitacije, što omogućava preciznu podelu kampanja u četiri različita poslovna segmenta.
